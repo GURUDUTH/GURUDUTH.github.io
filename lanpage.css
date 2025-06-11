@@ -1015,3 +1015,120 @@
         font-size: 11px;
     }
 }
+
+/* Thinking in Product Section Styling */
+.thinking-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.thinking-box {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.thinking-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(230, 230, 230, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: -1;
+    border-radius: 12px;
+}
+
+.thinking-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.thinking-box:hover::before {
+    opacity: 1;
+    animation: pulse 2s infinite;
+    background: radial-gradient(circle at center, rgba(255, 50, 50, 0.2) 0%, transparent 70%);
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; box-shadow: 0 0 5px rgba(255, 50, 50, 0.3); }
+    50% { opacity: 0.7; box-shadow: 0 0 15px rgba(255, 50, 50, 0.7); }
+    100% { opacity: 0.3; box-shadow: 0 0 5px rgba(255, 50, 50, 0.3); }
+}
+
+.thinking-image {
+    width: 100px;
+    height: auto;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    filter: drop-shadow(0 0 0 transparent);
+}
+
+.thinking-box:hover .thinking-image {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px rgba(255, 50, 50, 0.7));
+}
+
+.thinking-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0 5px;
+    color: #FEFCFB;
+    transition: color 0.3s ease;
+}
+
+/* Responsive styles for thinking boxes */
+@media (max-width: 768px) {
+    .thinking-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+    }
+    
+    .thinking-box {
+        max-width: 250px;
+        padding: 15px;
+    }
+    
+    .thinking-title {
+        font-size: 14px;
+    }
+    
+    .thinking-image {
+        width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .thinking-box {
+        max-width: 220px;
+        padding: 12px;
+    }
+    
+    .thinking-image {
+        width: 70px;
+        margin-bottom: 10px;
+    }
+}
