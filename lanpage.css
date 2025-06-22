@@ -19,16 +19,17 @@
 .button-style {
     color: #FEFCFB;
 	border: 1px solid #FEFCFB;
-	border-radius: 20px;
+	border-radius: 15px;
 	background: #55286F;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding: 6px 12px;
+	font-size: 14px;
 	font-weight: bold;
     cursor: pointer;
     margin-top: 6px;
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .button-style:hover {
@@ -868,17 +869,21 @@
 @media (max-width: 480px) {
     .top-space {
         padding-top: 10px;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: 0;
+        margin-right: 0;
     }
     
     .my-name {
         font-size: 28px;
         margin-bottom: 12px;
+        padding: 0 10px;
     }
     
     .nav-buttons {
         gap: 8px;
+        padding: 0 10px;
     }
     
     .button-style {
@@ -898,6 +903,7 @@
     .nav-buttons button {
         width: 100%;
         min-width: 0;
+        justify-content: center;
     }
 }
 
