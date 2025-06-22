@@ -493,7 +493,14 @@
     #intro-box, .project-1, .tooltech {
         margin-left: 15px;
         margin-right: 15px;
-        padding: 20px;
+        padding: 20px 20px;
+    }
+    
+    #intro-box p {
+        text-align: left;
+        margin-bottom: 15px;
+        padding: 0 5px;
+        line-height: 1.5;
     }
     
     .tech-categories {
@@ -616,6 +623,17 @@
         padding-right: 3px;
         margin-left: 3px;
         margin-right: 3px;
+    }
+    
+    #intro-box {
+        padding: 20px 15px;
+    }
+    
+    #intro-box p {
+        font-size: 14px;
+        line-height: 1.6;
+        padding: 0 10px;
+        margin-bottom: 12px;
     }
     
     .my-project-heading {
