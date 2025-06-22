@@ -150,16 +150,221 @@
         justify-content: center;
         width: 100%;
     }
+    
+    .skills-list {
+        max-width: 100%;
+    }
+    
+    .skill-rect {
+        padding: 12px;
+    }
+    
+    .skill-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        margin-right: 12px;
+    }
+    
+    .skill-text h3 {
+        font-size: 15px;
+    }
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 25px;
+/* Mobile optimization for skills rolling animation */
+@media (max-width: 768px) {
+    .skill-rect {
+        transform: translateX(-20px); /* Less dramatic slide-in on mobile */
+    }
+    
+    @keyframes skill-roll-in {
+        0% {
+            opacity: 0;
+            transform: translateX(-25px);
+        }
+        75% {
+            transform: translateX(3px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .skills-list::after {
+        width: 30px;
+        height: 6px;
+    }
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     width: 100%;
-    max-width: 600px; /* Wider to match screenshot */
+    max-width: 600px;
     margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-rect {
+    display: flex;
+    align-items: center;
+    background-color: #161A1D; /* Changed to black */
+    border: 1px solid rgba(147, 112, 219, 0.3); /* Adjusted border for purple theme */
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-40px);
+    position: relative;
+    will-change: transform, opacity, box-shadow; /* Performance optimization */
+    backface-visibility: hidden; /* Smoother animations */
+}
+
+.skill-rect::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #9370DB, #ffffff); /* Brighter gradient with full purple and white */
+    transition: width 0.4s ease;
+    border-radius: 0 0 0 10px;
+    box-shadow: 0 0 10px rgba(147, 112, 219, 0.5); /* Add glow to highlight the gradient */
+}
+
+.skill-rect:hover::before {
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+}
+
+.skill-rect::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    background: radial-gradient(circle at center, rgba(147, 112, 219, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.skill-rect:hover::after {
+    opacity: 1;
+}
+
+.skill-rect.visible {
+    opacity: 1;
+    transform: translateX(0);
+    box-shadow: 0 6px 10px rgba(147, 112, 219, 0.25); /* Enhanced purple shadow */
+    animation: skill-subtle-float 6s infinite ease-in-out, border-pulse 4s infinite ease-in-out;
+}
+
+/* Initially show only the first two skill boxes */
+.skill-rect:nth-child(1),
+.skill-rect:nth-child(2) {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Initial glow effect for the first two skill boxes */
+.skill-rect:nth-child(1),
+.skill-rect:nth-child(2) {
+    animation: initial-skill-glow 2s ease-in-out;
+}
+
+@keyframes initial-skill-glow {
+    0% { 
+        box-shadow: 0 4px 6px rgba(147, 112, 219, 0.3); 
+        border-color: rgba(147, 112, 219, 0.3);
+    }
+    50% { 
+        box-shadow: 0 0 18px rgba(147, 112, 219, 0.7); 
+        border-color: rgba(147, 112, 219, 0.7);
+    }
+    100% { 
+        box-shadow: 0 4px 6px rgba(147, 112, 219, 0.3); 
+        border-color: rgba(147, 112, 219, 0.3);
+    }
+}
+
+/* Hover animation for the skill rectangles */
+.skill-rect.visible:hover {
+    transform: translateY(-5px) scale(1.03);
+    background-color: #1E2329; /* Slightly lighter black for hover state */
+    border-color: rgba(147, 112, 219, 0.5); /* Brighter purple border on hover */
+    box-shadow: 0 10px 20px rgba(147, 112, 219, 0.3); /* Purple glow effect */
+    cursor: pointer;
+}
+
+.skill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #9370DB, #8466c9); /* Purple gradient background */
+    color: #000000; /* Icon color changed to black */
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    margin-right: 15px;
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    box-shadow: 0 0 8px rgba(147, 112, 219, 0.4), inset 0 1px 3px rgba(255, 255, 255, 0.2); /* Subtle purple glow with inner highlight */
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-icon::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.skill-rect:hover .skill-icon::after {
+    animation: icon-shimmer 2s infinite;
+    opacity: 1;
+}
+
+@keyframes icon-shimmer {
+    0% {
+        transform: rotate(30deg) translateX(-100%);
+    }
+    100% {
+        transform: rotate(30deg) translateX(100%);
+    }
+}
+
+.skill-text {
+    flex-grow: 1;
+}
+
+.skill-text h3 {
+    color: #FFFFFF; /* Changed to white */
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Enhanced shadow for better readability on dark background */
+    letter-spacing: 0.3px; /* Slight letter spacing for better readability */
 }
 
 .skill-box {
@@ -458,6 +663,32 @@
     transform: translateY(0);
 }
 
+/* Animation for skills rolling in */
+@keyframes skill-roll-in {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px) translateY(5px);
+        filter: blur(3px);
+        box-shadow: 0 0 10px rgba(147, 112, 219, 0);
+    }
+    60% {
+        opacity: 0.9;
+        filter: blur(0px);
+    }
+    70% {
+        transform: translateX(5px) translateY(-2px);
+        box-shadow: 0 0 15px rgba(147, 112, 219, 0.6);
+    }
+    85% {
+        transform: translateX(-2px) translateY(0px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+        box-shadow: 0 6px 10px rgba(147, 112, 219, 0.4);
+    }
+}
+
 /* Media Queries for Responsive Design */
 @media (max-width: 1024px) {
     .top-space, #intro-box, .project-1, .tooltech, .skills-section {
@@ -727,6 +958,53 @@
 @media (max-width: 480px) {
     .skill-item {
         margin-bottom: 20px;
+    }
+    
+    .skills-list {
+        gap: 10px;
+    }
+    
+    .skill-rect {
+        padding: 10px;
+    }
+    
+    .skill-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        margin-right: 10px;
+        border-radius: 8px;
+        background: linear-gradient(145deg, #9370DB, #8466c9); /* Consistent purple gradient on mobile */
+        color: #000000; /* Black icon color on mobile */
+        box-shadow: 0 0 5px rgba(147, 112, 219, 0.4); /* Reduced shadow size on mobile */
+    }
+    
+    .skill-text h3 {
+        font-size: 14px;
+        color: #FFFFFF; /* White text on mobile */
+    }
+    
+    /* Adjusted hover effects for mobile */
+    .skill-rect.visible:hover {
+        transform: translateY(-3px) scale(1.02);
+        background-color: #1E2329; /* Slightly lighter black for hover state on mobile */
+        border-color: rgba(147, 112, 219, 0.5); /* Ensure purple border on mobile hover */
+    }
+    
+    @keyframes skill-hover-pulse {
+        0% {
+            box-shadow: 0 4px 8px rgba(147, 112, 219, 0.2);
+        }
+        50% {
+            box-shadow: 0 8px 15px rgba(147, 112, 219, 0.35);
+        }
+        100% {
+            box-shadow: 0 4px 8px rgba(147, 112, 219, 0.2);
+        }
+    }
+    
+    .skill-rect:hover .skill-icon {
+        transform: scale(1.05);
     }
 }
 
@@ -1220,4 +1498,91 @@
     .skill-box {
         height: 180px;
     }
+}
+
+/* Adding staggered animation timing for the skills rolling effect */
+.skill-rect:nth-child(3) { transition-delay: 0.2s; }
+.skill-rect:nth-child(4) { transition-delay: 0.4s; }
+.skill-rect:nth-child(5) { transition-delay: 0.6s; }
+
+/* New CSS for skills reveal indicator */
+.skills-list::after {
+    content: '';
+    display: block;
+    height: 8px;
+    width: 40px;
+    margin: 5px auto 0;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(147, 112, 219, 0.8), rgba(255, 255, 255, 0.6)); /* Updated gradient to match new theme */
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: scaleX(0);
+}
+
+.skills-list.show-more-indicator::after {
+    opacity: 1;
+    transform: scaleX(1);
+    animation: pulse-indicator 2s infinite ease-in-out;
+}
+
+@keyframes pulse-indicator {
+    0% { opacity: 0.4; transform: scaleX(0.8); }
+    50% { opacity: 1; transform: scaleX(1); }
+    100% { opacity: 0.4; transform: scaleX(0.8); }
+}
+
+@keyframes skill-hover-pulse {
+    0% {
+        box-shadow: 0 6px 10px rgba(147, 112, 219, 0.25);
+    }
+    50% {
+        box-shadow: 0 10px 20px rgba(147, 112, 219, 0.4);
+    }
+    100% {
+        box-shadow: 0 6px 10px rgba(147, 112, 219, 0.25);
+    }
+}
+
+.skill-rect.visible:hover {
+    animation: skill-hover-pulse 2s infinite ease-in-out;
+}
+
+.skill-rect:hover .skill-text h3 {
+    color: #FFFFFF; /* Keep white color */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7); /* Enhanced white glow on hover */
+    transform: translateX(3px); /* Slight movement on hover */
+    transition: all 0.3s ease;
+}
+
+@keyframes icon-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.skill-rect:hover .skill-icon i {
+    animation: icon-pulse 1.5s infinite ease-in-out;
+}
+
+/* Subtle border animation for skill rectangles */
+@keyframes border-pulse {
+    0% {
+        border-color: rgba(147, 112, 219, 0.3);
+    }
+    50% {
+        border-color: rgba(147, 112, 219, 0.6);
+    }
+    100% {
+        border-color: rgba(147, 112, 219, 0.3);
+    }
+}
+
+.skill-rect.visible {
+    animation: skill-subtle-float 6s infinite ease-in-out, border-pulse 4s infinite ease-in-out;
 }
