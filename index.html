@@ -5,6 +5,20 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="lanpage.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            'primary': '#55286F',
+                            'secondary': '#FEFCFB',
+                            'dark': '#161A1D',
+                        }
+                    }
+                }
+            }
+        </script>
         <title>Guruduth Rao | AI Product Manager</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <meta name="description" content="Guruduth Rao - AI Product Manager specializing in LLMs, AI products and user-focused solutions">
@@ -47,45 +61,6 @@
             <div class="skills-content">
                 <div class="skills-main-content">
                     <div class="skills-left">
-                        <h2 class="skills-heading">My Skills</h2>
-                        <p class="skills-tagline">Transforming Product Ideas<br>Into Measurable Business Value.</p>
-                    </div>
-                    <div class="skills-right">
-                        <div class="skills-grid">
-                            <div class="skill-box skill-item">
-                                <div class="skill-inner">
-                                    <h3>Market / User Research</h3>
-                                    <p>Market Analysis, User Interviews, Usability Testing</p>
-                                </div>
-                            </div>
-                            <div class="skill-box skill-item">
-                                <div class="skill-inner">
-                                    <h3>AI Product Management</h3>
-                                    <p>LLM Systems, ML Lifecycle, Feature Planning</p>
-                                </div>
-                            </div>
-                            <div class="skill-box skill-item">
-                                <div class="skill-inner">
-                                    <h3>Stakeholder Management</h3>
-                                    <p>Communication, Alignment, Expectation Setting</p>
-                                </div>
-                            </div>
-                            <div class="skill-box skill-item">
-                                <div class="skill-inner">
-                                    <h3>Product Strategy</h3>
-                                    <p>Roadmapping, A/B Tests, Product-Market Fit</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="skills-section fade-in">
-            <div class="skills-content">
-                <div class="skills-main-content">
-                    <div class="skills-left">
                         <h2 class="skills-heading">Product Lab</h2>
                         <p class="skills-tagline">Strategic works exploring<br>problems, users, and solutions</p>
                     </div>
@@ -103,11 +78,20 @@
             <div class="skills-content">
                 <div class="skills-main-content">
                     <div class="skills-left">
-                        <h2 class="skills-heading">Product Stack</h2>
-                        <p class="skills-tagline">Core tools powering<br>my product work.</p>
+                        <h2 class="skills-heading">Thinking in Product</h2>
+                        <p class="skills-tagline">Frameworks, insights, and<br>thoughts on product management</p>
                     </div>
                     <div class="skills-right">
-                        <!-- This section is intentionally left empty for now -->
+                        <div class="thinking-grid">
+                            <a href="evals-for-aipm.html" class="thinking-box">
+                                <img src="./logos/evals-icon.svg" alt="Evaluation Framework" class="thinking-image">
+                                <p class="thinking-title">EVALS for AIPM/PM</p>
+                            </a>
+                            <a href="https://www.notion.so/MTP-Product-management-1f64c8a57c1280509e4cf741cf7c72f6?source=copy_link" target="_blank" class="thinking-box">
+                                <img src="./logos/notionlogo.webp" alt="Notion Logo" class="thinking-image">
+                                <p class="thinking-title">PM Notes</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,17 +101,77 @@
             <div class="skills-content">
                 <div class="skills-main-content">
                     <div class="skills-left">
-                        <h2 class="skills-heading">Thinking in Product</h2>
-                        <p class="skills-tagline">Frameworks, insights, and<br>thoughts on product management</p>
+                        <h2 class="skills-heading">My Skills</h2>
+                        <p class="skills-tagline">Transforming Product Ideas<br>Into Measurable Business Value.</p>
                     </div>
                     <div class="skills-right">
-                        <div class="thinking-grid">
-                            <a href="https://www.notion.so/MTP-Product-management-1f64c8a57c1280509e4cf741cf7c72f6?source=copy_link" target="_blank" class="thinking-box">
-                                <img src="./logos/notionlogo.webp" alt="Notion Logo" class="thinking-image">
-                                <p class="thinking-title">My PM Notes</p>
-                            </a>
-                            <!-- Additional boxes can be added here -->
+                        <div class="skills-grid">
+                            <!-- Market / User Research -->
+                            <div class="group skill-box skill-item bg-gradient-to-br from-[#55286F]/20 to-[#55286F]/30 backdrop-blur-sm hover:from-[#55286F]/40 hover:to-[#55286F]/50 transition-all duration-300 border border-[#FEFCFB]/10 hover:border-[#FEFCFB]/30 rounded-xl overflow-hidden shadow-lg hover:shadow-xl">
+                                <div class="skill-inner p-5 flex flex-col items-start justify-center h-full w-full relative z-10">
+                                    <div class="absolute top-0 right-0 opacity-10 group-hover:opacity-30 transition-opacity duration-300 transform -translate-y-1/4 translate-x-1/4">
+                                        <i class="fas fa-magnifying-glass text-[80px] text-[#FEFCFB]"></i>
+                                    </div>
+                                    <div class="mb-4 bg-[#55286F]/40 p-3 rounded-full">
+                                        <i class="fas fa-users text-[#FEFCFB] text-xl"></i>
+                                    </div>
+                                    <h3 class="text-[#FEFCFB] text-lg font-bold group-hover:-translate-y-1 transition-transform duration-300">Market / User Research</h3>
+                                </div>
+                            </div>
+                            
+                            <!-- AI Product Management -->
+                            <div class="group skill-box skill-item bg-gradient-to-br from-[#55286F]/20 to-[#55286F]/30 backdrop-blur-sm hover:from-[#55286F]/40 hover:to-[#55286F]/50 transition-all duration-300 border border-[#FEFCFB]/10 hover:border-[#FEFCFB]/30 rounded-xl overflow-hidden shadow-lg hover:shadow-xl">
+                                <div class="skill-inner p-5 flex flex-col items-start justify-center h-full w-full relative z-10">
+                                    <div class="absolute top-0 right-0 opacity-10 group-hover:opacity-30 transition-opacity duration-300 transform -translate-y-1/4 translate-x-1/4">
+                                        <i class="fas fa-robot text-[80px] text-[#FEFCFB]"></i>
+                                    </div>
+                                    <div class="mb-4 bg-[#55286F]/40 p-3 rounded-full">
+                                        <i class="fas fa-brain text-[#FEFCFB] text-xl"></i>
+                                    </div>
+                                    <h3 class="text-[#FEFCFB] text-lg font-bold group-hover:-translate-y-1 transition-transform duration-300">AI Product Management</h3>
+                                </div>
+                            </div>
+                            
+                            <!-- Stakeholder Management -->
+                            <div class="group skill-box skill-item bg-gradient-to-br from-[#55286F]/20 to-[#55286F]/30 backdrop-blur-sm hover:from-[#55286F]/40 hover:to-[#55286F]/50 transition-all duration-300 border border-[#FEFCFB]/10 hover:border-[#FEFCFB]/30 rounded-xl overflow-hidden shadow-lg hover:shadow-xl">
+                                <div class="skill-inner p-5 flex flex-col items-start justify-center h-full w-full relative z-10">
+                                    <div class="absolute top-0 right-0 opacity-10 group-hover:opacity-30 transition-opacity duration-300 transform -translate-y-1/4 translate-x-1/4">
+                                        <i class="fas fa-handshake text-[80px] text-[#FEFCFB]"></i>
+                                    </div>
+                                    <div class="mb-4 bg-[#55286F]/40 p-3 rounded-full">
+                                        <i class="fas fa-people-group text-[#FEFCFB] text-xl"></i>
+                                    </div>
+                                    <h3 class="text-[#FEFCFB] text-lg font-bold group-hover:-translate-y-1 transition-transform duration-300">Stakeholder Management</h3>
+                                </div>
+                            </div>
+                            
+                            <!-- Product Strategy -->
+                            <div class="group skill-box skill-item bg-gradient-to-br from-[#55286F]/20 to-[#55286F]/30 backdrop-blur-sm hover:from-[#55286F]/40 hover:to-[#55286F]/50 transition-all duration-300 border border-[#FEFCFB]/10 hover:border-[#FEFCFB]/30 rounded-xl overflow-hidden shadow-lg hover:shadow-xl">
+                                <div class="skill-inner p-5 flex flex-col items-start justify-center h-full w-full relative z-10">
+                                    <div class="absolute top-0 right-0 opacity-10 group-hover:opacity-30 transition-opacity duration-300 transform -translate-y-1/4 translate-x-1/4">
+                                        <i class="fas fa-chart-line text-[80px] text-[#FEFCFB]"></i>
+                                    </div>
+                                    <div class="mb-4 bg-[#55286F]/40 p-3 rounded-full">
+                                        <i class="fas fa-chess text-[#FEFCFB] text-xl"></i>
+                                    </div>
+                                    <h3 class="text-[#FEFCFB] text-lg font-bold group-hover:-translate-y-1 transition-transform duration-300">Product Strategy</h3>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="skills-section fade-in">
+            <div class="skills-content">
+                <div class="skills-main-content">
+                    <div class="skills-left">
+                        <h2 class="skills-heading">Product Stack</h2>
+                        <p class="skills-tagline">Core tools powering<br>my product work.</p>
+                    </div>
+                    <div class="skills-right">
+                        <!-- This section is intentionally left empty for now -->
                     </div>
                 </div>
             </div>
@@ -158,7 +202,48 @@
                         // Functionality will be added in the future
                     });
                 }
+                
+                // Create and add back-to-top button
+                const backToTopBtn = document.createElement('button');
+                backToTopBtn.className = 'back-to-top';
+                backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+                document.body.appendChild(backToTopBtn);
+                
+                // Show/hide back-to-top button based on scroll position
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTopBtn.classList.add('show');
+                    } else {
+                        backToTopBtn.classList.remove('show');
+                    }
+                });
+                
+                // Smooth scroll to top when the button is clicked
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
             });
         </script>
+        
+        <div class="connect-section fade-in">
+            <h2>Connect With Me</h2>
+            <div class="social-icons">
+                <a href="https://github.com/GURUDUTH" target="_blank" class="social-icon" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/guruduth-rao-h-36845b171/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://x.com/GuruduthH" target="_blank" class="social-icon" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            <div class="email-text">
+                <a href="mailto:graoinbox16@gmail.com">graoinbox16@gmail.com</a>
+            </div>
+        </div>
     </body>    
 </html>
