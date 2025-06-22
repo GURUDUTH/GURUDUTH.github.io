@@ -39,77 +39,9 @@
     box-shadow: 0 4px 8px rgba(85, 40, 111, 0.5);
 }
 
-/* Resume button styling */
-.resume-btn {
-    display: inline-block;
-    margin-top: 20px;
-    margin-left: 0;
-    padding: 8px 18px;
-    background: linear-gradient(135deg, #00ED64 0%, #00C954 100%);
-    color: #161A1D;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    text-decoration: none;
-    border-radius: 20px;
-    border: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 8px rgba(0, 237, 100, 0.2);
-    cursor: default;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    text-align: center;
-    opacity: 0.85; /* Slightly dimmed to indicate it's not yet functional */
-}
+/* Resume button styling has been removed */
 
-.resume-btn:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #00C954 0%, #00ED64 100%);
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.3s ease;
-}
-
-.resume-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0, 237, 100, 0.25);
-    opacity: 0.95;
-}
-
-.resume-btn:hover:before {
-    opacity: 0.5;
-}
-
-.resume-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 8px rgba(0, 237, 100, 0.2);
-}
-
-.resume-btn i {
-    margin-right: 8px;
-}
-
-/* Resume button container */
-.resume-container {
-    text-align: left;
-    margin-top: 25px;
-    display: flex;
-    justify-content: flex-start;
-}
-
-/* Responsive styles for resume button container */
-@media (max-width: 768px) {
-    .resume-container {
-        text-align: center;
-        justify-content: center;
-    }
-}
+/* Resume button container has been removed */
 
 /* .profile-intro {
     padding-left: 100px;
@@ -689,18 +621,7 @@
         margin-left: 3px;
     }
     
-    /* Additional responsive styles for resume button */
-    .resume-btn {
-        padding: 6px 12px;
-        font-size: 12px;
-        margin-top: 15px;
-    }
-    
-    .resume-container {
-        text-align: center;
-        margin-top: 15px;
-        justify-content: center;
-    }
+    /* Resume button responsive styles have been removed */
 }
 
 /* Responsive styles for project box */
