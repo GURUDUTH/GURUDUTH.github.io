@@ -36,6 +36,220 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+            
+            /* Product Stack Logo Marquee */
+            .logo-marquee-container {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                margin-top: 40px; /* Further increased top margin to move it down */
+                margin-bottom: 25px; /* Increased bottom margin for better balance */
+                padding: 70px 0; /* Further increased vertical padding for more height */
+                background-color: rgba(255, 255, 255, 0.08);
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.3); /* Simple border */
+                box-sizing: border-box;
+                z-index: 1; /* Ensure container is positioned properly */
+            }
+            
+            /* Removed edge highlight animation for simplicity */
+            
+            /* Removed subtle glow animation for simplicity */
+            
+            /* Extra styles for desktop to ensure edges are visible */
+            @media (min-width: 769px) {
+                .logo-marquee {
+                    padding-left: 40px; /* Moderate left padding */
+                    padding-right: 120px; /* Increased right padding */
+                }
+                
+                .logo-marquee-container {
+                    position: relative;
+                    border: 1px solid rgba(255, 255, 255, 0.3); /* Simple border */
+                    overflow: hidden; /* Keep logos within container */
+                    margin-top: 45px; /* Further increased top margin on desktop */
+                    margin-bottom: 25px; /* Increased bottom margin on desktop */
+                    padding: 40px 0; /* Reduced vertical padding for desktop */
+                }
+                
+                /* No fade effects on desktop */
+                .logo-marquee-container::before,
+                .logo-marquee-container::after {
+                    display: none;
+                }
+            }
+            
+            .logo-marquee {
+                display: flex;
+                white-space: nowrap;
+                will-change: transform;
+                animation: marquee 20s linear infinite; /* Increased speed from 30s to 20s */
+                padding-right: 120px; /* Increased padding on right side to prevent logos from appearing cut off */
+                transform: translateZ(0); /* Performance optimization with hardware acceleration */
+            }
+            
+            @keyframes marquee {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+            
+            .logo-marquee-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0 35px;
+                transition: all 0.3s ease;
+                min-width: 130px; /* Increase minimum width */
+                margin-bottom: 10px; /* Add some bottom margin */
+            }
+            
+            .logo-marquee-item:hover {
+                transform: translateY(-5px) scale(1.08);
+                z-index: 5; /* Bring hovered item to front */
+            }
+            
+            .logo-marquee-image {
+                height: 45px;
+                width: auto;
+                max-width: 100px;
+                object-fit: contain;
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)) brightness(0.95) contrast(1.05);
+                transition: all 0.3s ease;
+                opacity: 0.85; /* Slightly more subtle appearance */
+            }
+            
+            .logo-marquee-item:hover .logo-marquee-image {
+                filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.3)) brightness(1.2);
+                opacity: 1;
+                transform: scale(1.05); /* Slight scale effect on the image itself */
+            }
+            
+            .logo-marquee-name {
+                font-size: 14px;
+                color: #FEFCFB;
+                font-weight: 500;
+                text-align: center;
+                margin-top: 12px;
+                opacity: 0.9;
+                transition: all 0.3s ease;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+                letter-spacing: 0.3px;
+            }
+            
+            .logo-marquee-item:hover .logo-marquee-name {
+                opacity: 1;
+                font-weight: 600;
+            }
+            
+            /* Base styling for the before/after elements - used for optional fade effects */
+            .logo-marquee-container::before,
+            .logo-marquee-container::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: 0; /* Default to no width */
+                z-index: 2;
+                pointer-events: none;
+                display: none; /* Hide by default */
+            }
+            
+            .logo-marquee-container::before {
+                left: 0;
+                border-top-left-radius: 10px; /* Match the container border-radius */
+                border-bottom-left-radius: 10px;
+            }
+            
+            .logo-marquee-container::after {
+                right: 0;
+                border-top-right-radius: 10px; /* Match the container border-radius */
+                border-bottom-right-radius: 10px;
+            }
+            
+            @media (max-width: 768px) {
+                .logo-marquee-container {
+                    padding: 30px 0; /* Reduced vertical padding for tablet */
+                    border-width: 1px; /* Simple border */
+                    margin-top: 35px; /* Increased top margin for tablet */
+                    margin-bottom: 20px; /* Increased bottom margin for tablet */
+                }
+                
+                .logo-marquee {
+                    padding-left: 30px; /* Moderate left padding */
+                    padding-right: 100px; /* Increased right padding */
+                    animation-duration: 18s; /* Faster animation for tablet */
+                }
+                
+                .logo-marquee-item {
+                    padding: 0 25px;
+                    min-width: 110px;
+                }
+                
+                .logo-marquee-image {
+                    height: 40px;
+                }
+                
+                .logo-marquee-name {
+                    font-size: 13px;
+                    margin-top: 10px;
+                }
+                
+                /* No fade effects on tablet either */
+                .logo-marquee-container::before,
+                .logo-marquee-container::after {
+                    display: none;
+                }
+                
+                /* Keep overflow hidden */
+                .logo-marquee-container {
+                    overflow: hidden;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .logo-marquee-container {
+                    padding: 25px 0; /* Reduced vertical padding for mobile */
+                    border-width: 1px;
+                }
+                
+                .logo-marquee {
+                    padding-left: 20px; /* Minimal left padding */
+                    padding-right: 80px; /* Increased right padding */
+                    animation-duration: 10s; /* Much faster animation for mobile */
+                }
+                
+                .logo-marquee-item {
+                    padding: 0 20px;
+                    min-width: 90px;
+                }
+                
+                .logo-marquee-image {
+                    height: 35px;
+                }
+                
+                .logo-marquee-name {
+                    font-size: 12px;
+                    margin-top: 8px;
+                }
+                
+                /* Remove fade gradients on mobile */
+                .logo-marquee-container::before,
+                .logo-marquee-container::after {
+                    display: none;
+                }
+                
+                /* Simple border styling */
+                .logo-marquee-container {
+                    border-color: rgba(255, 255, 255, 0.3);
+                    overflow: hidden; /* Keep logos within container */
+                    margin-top: 30px; /* Increased top margin on mobile */
+                    margin-bottom: 15px; /* Increased bottom margin on mobile */
+                }
+            }
         </style>
         <div class="top-space">
             <div>
@@ -87,6 +301,10 @@
                             <a href="https://www.notion.so/MTP-Product-management-1f64c8a57c1280509e4cf741cf7c72f6?source=copy_link" target="_blank" class="thinking-box">
                                 <img src="./logos/notionlogo.webp" alt="Notion Logo" class="thinking-image">
                                 <p class="thinking-title">PM Notes</p>
+                            </a>
+                            <a href="model-vs-system-evals.html" class="thinking-box">
+                                <img src="./logos/model-vs-system-evals.svg" alt="Model vs System Evals" class="thinking-image">
+                                <p class="thinking-title">Model Evals vs System Evals for AIPM/PM</p>
                             </a>
                         </div>
                     </div>
@@ -158,15 +376,69 @@
             </div>
         </div>
         
-        <div class="skills-section fade-in">
+        <div class="skills-section fade-in" style="margin-top: 60px; margin-bottom: 60px; padding-top: 30px; padding-bottom: 30px;">
             <div class="skills-content">
-                <div class="skills-main-content">
+                <div class="skills-main-content" style="align-items: center;">
                     <div class="skills-left">
                         <h2 class="skills-heading">Product Stack</h2>
                         <p class="skills-tagline">Core tools powering<br>my product work.</p>
                     </div>
-                    <div class="skills-right">
-                        <!-- This section is intentionally left empty for now -->
+                    <div class="skills-right" style="padding-bottom: 40px; padding-top: 20px;">
+                        <div class="logo-marquee-container">
+                            <div class="logo-marquee">
+                                <!-- First set of logos -->
+                                <div class="logo-marquee-item">
+                                    <img src="logos/Asana_logo.svg.png" alt="Asana" class="logo-marquee-image">
+                                    <span class="logo-marquee-name">Asana</span>
+                                </div>
+                                <div class="logo-marquee-item">
+                                    <img src="logos/Ahalogo.png" alt="Aha!" class="logo-marquee-image">
+                                    <span class="logo-marquee-name">Aha!</span>
+                                </div>
+                                <div class="logo-marquee-item">
+                                    <img src="logos/ChatGPT-Logo.svg.webp" alt="ChatGPT" class="logo-marquee-image">
+                                    <span class="logo-marquee-name">ChatGPT</span>
+                                </div>
+                                <div class="logo-marquee-item">
+                                    <img src="logos/Figma-logo.svg.png" alt="Figma" class="logo-marquee-image">
+                                    <span class="logo-marquee-name">Figma</span>
+                                </div>
+                                <div class="logo-marquee-item">
+                                    <img src="logos/Notion-logo.svg.png" alt="Notion" class="logo-marquee-image">
+                                    <span class="logo-marquee-name">Notion</span>
+                                </div>
+                                <div class="logo-marquee-item">
+                                    <img src="logos/copilot.png" alt="GitHub Copilot" class="logo-marquee-image">
+                                    <span class="logo-marquee-name">GitHub Copilot</span>
+                                </div>
+                                
+                                <!-- Duplicate set for continuous motion -->
+                                <div class="logo-marquee-item">
+                                    <img src="logos/Asana_logo.svg.png" alt="Asana" class="logo-marquee-image">
+                                    <span class="logo-marquee-name">Asana</span>
+                                </div>
+                                <div class="logo-marquee-item">
+                                    <img src="logos/Ahalogo.png" alt="Aha!" class="logo-marquee-image">
+                                    <span class="logo-marquee-name">Aha!</span>
+                                </div>
+                                <div class="logo-marquee-item">
+                                    <img src="logos/ChatGPT-Logo.svg.webp" alt="ChatGPT" class="logo-marquee-image">
+                                    <span class="logo-marquee-name">ChatGPT</span>
+                                </div>
+                                <div class="logo-marquee-item">
+                                    <img src="logos/Figma-logo.svg.png" alt="Figma" class="logo-marquee-image">
+                                    <span class="logo-marquee-name">Figma</span>
+                                </div>
+                                <div class="logo-marquee-item">
+                                    <img src="logos/Notion-logo.svg.png" alt="Notion" class="logo-marquee-image">
+                                    <span class="logo-marquee-name">Notion</span>
+                                </div>
+                                <div class="logo-marquee-item">
+                                    <img src="logos/copilot.png" alt="GitHub Copilot" class="logo-marquee-image">
+                                    <span class="logo-marquee-name">GitHub Copilot</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -177,10 +449,128 @@
             document.addEventListener('DOMContentLoaded', function() {
                 const fadeElements = document.querySelectorAll('.fade-in');
                 
+                // Initialize logo marquee
+                const logoMarquee = document.querySelector('.logo-marquee');
+                const logoMarqueeContainer = document.querySelector('.logo-marquee-container');
+                
+                if (logoMarquee && logoMarqueeContainer) {
+                    // Ensure animation is running from the start
+                    logoMarquee.style.animationPlayState = 'running';
+                    
+                    // Pause animation on hover
+                    logoMarqueeContainer.addEventListener('mouseenter', () => {
+                        logoMarquee.style.animationPlayState = 'paused';
+                    });
+                    
+                    logoMarqueeContainer.addEventListener('mouseleave', () => {
+                        logoMarquee.style.animationPlayState = 'running';
+                    });
+                    
+                    // Immediately display logos and handle any loading issues
+                    document.querySelectorAll('.logo-marquee-image').forEach((img, index) => {
+                        // Force image to display
+                        img.style.display = 'block';
+                        
+                        // Handle errors and ensure visibility
+                        img.onerror = function() {
+                            console.log('Error loading image:', img.src);
+                            // Try alternate format if available
+                            if (img.src.includes('Asana_logo.svg.png')) {
+                                img.src = './logos/Asana_logo.svg.png';
+                            } else if (img.src.includes('Notion-logo.svg.png')) {
+                                img.src = './logos/notionlogo.webp';
+                            } else if (img.src.includes('copilot.png')) {
+                                img.src = './logos/copilot1.avif';
+                            } else {
+                                // Generic fallback
+                                img.src = './logos/notionlogo.webp';
+                            }
+                        };
+                        
+                        // Ensure image appears even if already loaded
+                        if (img.complete) {
+                            img.style.opacity = '1';
+                        } else {
+                            img.onload = function() {
+                                img.style.opacity = '1';
+                            };
+                        }
+                    });
+                    
+                    // Ensure the container is visible
+                    logoMarqueeContainer.style.display = 'block';
+                    logoMarqueeContainer.style.visibility = 'visible';
+                    
+                    // Function to ensure proper paddings based on screen size
+                    function adjustMarqueeWidth() {
+                        // Set appropriate padding across all screen sizes
+                        if (window.innerWidth <= 480) {
+                            // Mobile view
+                            logoMarquee.style.paddingLeft = '20px';
+                            logoMarquee.style.paddingRight = '80px'; // Increased right padding
+                            logoMarqueeContainer.style.padding = '25px 0'; // Reduced vertical padding for mobile
+                            logoMarqueeContainer.style.marginTop = '30px'; // Top margin for mobile
+                            logoMarqueeContainer.style.marginBottom = '15px'; // Bottom margin for mobile
+                            logoMarquee.style.animationDuration = '10s'; // Much faster animation for mobile
+                        } else if (window.innerWidth <= 768) {
+                            // Tablet view
+                            logoMarquee.style.paddingLeft = '30px';
+                            logoMarquee.style.paddingRight = '100px'; // Increased right padding
+                            logoMarqueeContainer.style.padding = '30px 0'; // Reduced vertical padding for tablet
+                            logoMarqueeContainer.style.marginTop = '35px'; // Top margin for tablet
+                            logoMarqueeContainer.style.marginBottom = '20px'; // Bottom margin for tablet
+                            logoMarquee.style.animationDuration = '18s'; // Faster animation for tablet
+                        } else {
+                            // Desktop view
+                            logoMarquee.style.paddingLeft = '40px';
+                            logoMarquee.style.paddingRight = '120px'; // Increased right padding
+                            logoMarqueeContainer.style.padding = '40px 0'; // Reduced vertical padding for desktop
+                            logoMarqueeContainer.style.marginTop = '45px'; // Top margin for desktop
+                            logoMarqueeContainer.style.marginBottom = '25px'; // Bottom margin for desktop
+                            logoMarquee.style.animationDuration = '20s'; // Faster animation for desktop
+                        }
+                        
+                        // Make sure overflow is hidden on all devices
+                        logoMarqueeContainer.style.overflow = 'hidden';
+                        
+                        // Remove any existing enhancers/fade effects
+                        const existingEnhancers = logoMarqueeContainer.querySelectorAll('.edge-enhancer');
+                        existingEnhancers.forEach(el => el.remove());
+                    }
+                    
+                    // Run after images have loaded
+                    window.addEventListener('load', adjustMarqueeWidth);
+                    
+                    // Also run after a short delay to ensure all elements are rendered
+                    setTimeout(adjustMarqueeWidth, 1000);
+                    
+                    // Simple resize handler 
+                    window.addEventListener('resize', () => {
+                        // Debounce the resize event
+                        if (window.resizeTimer) {
+                            clearTimeout(window.resizeTimer);
+                        }
+                        window.resizeTimer = setTimeout(() => {
+                            adjustMarqueeWidth();
+                        }, 250);
+                    });
+                }
+                
                 // Find the skills section specifically for skill rolling animation
                 const skillsSection = document.querySelector('.my-skills-section');
                 const skillsList = skillsSection ? skillsSection.querySelector('.skills-list') : null;
                 const skillItems = skillsList ? skillsList.querySelectorAll('.skill-rect:nth-child(n+3)') : [];
+                
+                // Debug function to check all logo image paths
+                function checkLogoImages() {
+                    const logoImages = document.querySelectorAll('.logo-marquee-image');
+                    logoImages.forEach((img, index) => {
+                        console.log(`Logo ${index}: ${img.src}, Complete: ${img.complete}, Natural width: ${img.naturalWidth}`);
+                    });
+                }
+                
+                // Run the check after a short delay
+                setTimeout(checkLogoImages, 500);
                 
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
@@ -211,11 +601,22 @@
                                 }
                             }
                             
+                            // Control logo marquee animation when in view
+                            if (logoMarquee && entry.target.contains(logoMarquee)) {
+                                logoMarquee.style.animationPlayState = 'running';
+                                
+                                // Simple padding adjustment
+                                adjustMarqueeWidth();
+                            }
+                            
                             // Once elements are visible, keep them visible (especially for the Connect section)
                             if (entry.target.classList.contains('connect-section')) {
                                 // Stop observing the connect section once it's visible to ensure it stays visible
                                 observer.unobserve(entry.target);
                             }
+                        } else if (logoMarquee && entry.target.contains(logoMarquee)) {
+                            // Keep the animation running even when out of view for smoother experience when scrolling back
+                            // logoMarquee.style.animationPlayState = 'running';
                         }
                     });
                 }, { threshold: 0.3, rootMargin: "0px 0px 50px 0px" });

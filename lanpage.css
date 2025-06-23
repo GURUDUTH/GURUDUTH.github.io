@@ -1225,9 +1225,9 @@
     justify-content: center;
     gap: 20px;
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     margin: 0 auto;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .thinking-box {
@@ -1311,8 +1311,8 @@
 @media (max-width: 768px) {
     .thinking-grid {
         gap: 15px;
-        max-width: 320px;
-        flex-wrap: nowrap;
+        max-width: 500px;
+        flex-wrap: wrap;
     }
     
     .thinking-box {
