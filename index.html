@@ -210,6 +210,15 @@
                 }
             }
             
+            /* Regular text styling for section taglines - no shimmer effect */
+            .tagline-text {
+                position: relative;
+                display: inline-block;
+                color: #FEFCFB;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Maintain readability */
+                font-weight: bold; /* Keep text bold for better visibility */
+            }
+            
             @media (max-width: 480px) {
                 .logo-marquee-container {
                     padding: 25px 0; /* Reduced vertical padding for mobile */
@@ -240,6 +249,11 @@
                 .logo-marquee-container::before,
                 .logo-marquee-container::after {
                     display: none;
+                }
+                
+                /* Mobile-specific tagline styling */
+                .tagline-text {
+                    font-weight: 600; /* Slightly bolder on mobile for better visibility */
                 }
                 
                 /* Simple border styling */
@@ -273,7 +287,7 @@
                 <div class="skills-main-content">
                     <div class="skills-left">
                         <h2 class="skills-heading">Product Lab</h2>
-                        <p class="skills-tagline">Strategic works exploring<br>problems, users, and solutions</p>
+                        <p class="skills-tagline"><span class="tagline-text">Strategic works exploring<br>problems, users, and solutions</span></p>
                     </div>
                     <div class="skills-right">
                         <div class="project-box">
@@ -290,7 +304,7 @@
                 <div class="skills-main-content">
                     <div class="skills-left">
                         <h2 class="skills-heading">Thinking in Product</h2>
-                        <p class="skills-tagline">Frameworks, insights, and<br>thoughts on product management</p>
+                        <p class="skills-tagline"><span class="tagline-text">Frameworks, insights, and<br>thoughts on product management</span></p>
                     </div>
                     <div class="skills-right">
                         <div class="thinking-grid">
@@ -317,7 +331,7 @@
                 <div class="skills-main-content">
                     <div class="skills-left">
                         <h2 class="skills-heading">My Skills</h2>
-                        <p class="skills-tagline">Transforming Product Ideas<br>Into Measurable Business Value.</p>
+                        <p class="skills-tagline"><span class="tagline-text">Transforming Product Ideas<br>Into Measurable Business Value.</span></p>
                     </div>
                     <div class="skills-right">
                         <div class="skills-list">
@@ -378,12 +392,12 @@
         
         <div class="skills-section fade-in" style="margin-top: 60px; margin-bottom: 60px; padding-top: 30px; padding-bottom: 30px;">
             <div class="skills-content">
-                <div class="skills-main-content" style="align-items: center;">
+                <div class="skills-main-content">
                     <div class="skills-left">
                         <h2 class="skills-heading">Product Stack</h2>
-                        <p class="skills-tagline">Core tools powering<br>my product work.</p>
+                        <p class="skills-tagline"><span class="tagline-text">Core tools powering<br>my product work.</span></p>
                     </div>
-                    <div class="skills-right" style="padding-bottom: 40px; padding-top: 20px;">
+                    <div class="skills-right">
                         <div class="logo-marquee-container">
                             <div class="logo-marquee">
                                 <!-- First set of logos -->

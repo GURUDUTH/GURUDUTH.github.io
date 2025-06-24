@@ -101,14 +101,16 @@
 
 .skills-main-content {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Align to top */
+    flex-direction: column; /* Changed to column layout */
+    align-items: center; /* Center-align content */
     gap: 40px;
     padding: 20px;
 }
 
 .skills-left {
-    flex: 1;
+    width: 100%;
+    text-align: center; /* Center text */
+    margin-bottom: 30px; /* Add space between heading/tagline and content */
 }
 
 .skills-heading {
@@ -128,11 +130,10 @@
 }
 
 .skills-right {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    padding-left: 20px;
     width: 100%;
+    display: flex;
+    justify-content: center; /* Center content */
+    padding-top: 20px; /* Add space between heading/tagline and content */
 }
 
 /* Empty section styling */
@@ -142,34 +143,37 @@
     border-radius: 8px;
 }
 
-/* Additional styles to ensure skill boxes separate cleanly on mobile */
-@media (max-width: 768px) {
-    .skills-right {
-        margin-top: 10px;
-        padding-left: 0;
-        justify-content: center;
-        width: 100%;
-    }
-    
-    .skills-list {
-        max-width: 100%;
-    }
-    
-    .skill-rect {
-        padding: 12px;
-    }
-    
-    .skill-icon {
-        width: 45px;
-        height: 45px;
-        font-size: 18px;
-        margin-right: 12px;
-    }
-    
-    .skill-text h3 {
-        font-size: 15px;
-    }
-}
+/* Additional styles to ensure skill boxes separate cleanly on mobile */            @media (max-width: 768px) {
+                .skills-right {
+                    margin-top: 10px;
+                    padding-left: 0;
+                    justify-content: center;
+                    width: 100%;
+                }
+                
+                .skills-list {
+                    max-width: 100%;
+                }
+                
+                .skill-rect {
+                    padding: 12px;
+                }
+                
+                .skill-icon {
+                    width: 45px;
+                    height: 45px;
+                    font-size: 18px;
+                    margin-right: 12px;
+                }
+                
+                .skill-text h3 {
+                    font-size: 15px;
+                }
+                
+                .skills-tagline {
+                    font-size: 28px; /* Smaller font size on mobile */
+                }
+            }
 
 /* Mobile optimization for skills rolling animation */
 @media (max-width: 768px) {
@@ -324,33 +328,17 @@
 .skill-icon::after {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -60%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.2) 50%,
-        rgba(255, 255, 255, 0) 100%
-    );
-    transform: rotate(30deg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
     opacity: 0;
     transition: opacity 0.6s ease;
 }
 
 .skill-rect:hover .skill-icon::after {
-    animation: icon-shimmer 2s infinite;
     opacity: 1;
-}
-
-@keyframes icon-shimmer {
-    0% {
-        transform: rotate(30deg) translateX(-100%);
-    }
-    100% {
-        transform: rotate(30deg) translateX(100%);
-    }
 }
 
 .skill-text {
@@ -570,9 +558,9 @@
     padding: 20px;
     transition: transform 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    max-width: 300px;
+    max-width: 450px; /* Reduced from 600px to make it smaller */
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto; /* Center project box */
     position: relative;
     z-index: 1;
 }
@@ -638,6 +626,8 @@
 
 .project-image {
     width: 100%;
+    max-height: 220px; /* Added max-height to control image size */
+    object-fit: contain; /* Ensures image maintains aspect ratio */
     border-radius: 8px;
     margin-bottom: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
@@ -753,28 +743,29 @@
     }
     
     .skills-content {
-        text-align: center;
         padding: 10px;
     }
     
     .skills-main-content {
-        flex-direction: column;
         padding: 10px;
+        gap: 20px; /* Reduce gap on smaller screens */
     }
     
     .skills-left {
-        margin-bottom: 30px;
-        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .skills-tagline {
+        font-size: 28px; /* Slightly smaller font on mobile */
     }
     
     .skills-heading {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
     
     .skills-right {
         justify-content: center;
         width: 100%;
-        padding-left: 0;
     }
     
     .skills-grid {
@@ -877,12 +868,16 @@
 /* Responsive styles for project box */
 @media (max-width: 768px) {
     .project-box {
-        max-width: 250px;
+        max-width: 350px; /* Adjusted for tablet view */
         padding: 15px;
     }
     
     .project-title {
         font-size: 14px;
+    }
+    
+    .project-image {
+        max-height: 180px;
     }
 }
 
@@ -894,6 +889,7 @@
     
     .project-image {
         margin-bottom: 10px;
+        max-height: 150px;
     }
 }
 
@@ -1221,13 +1217,14 @@
 
 /* Thinking in Product Section Styling */
 .thinking-grid {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
     gap: 20px;
     width: 100%;
-    max-width: 600px;
+    max-width: 600px; /* Optimized for 3 equal boxes */
     margin: 0 auto;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .thinking-box {
@@ -1236,7 +1233,6 @@
     padding: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 140px;
     height: 140px;
     text-align: center;
     position: relative;
@@ -1249,6 +1245,8 @@
     align-items: center;
     justify-content: center;
     border: 2px solid #9370DB;
+    margin: 0 auto; /* Center each box */
+    max-width: 95%; /* Prevent boxes from getting too wide */
 }
 
 .thinking-box::before {
@@ -1305,18 +1303,24 @@
     padding: 0 5px;
     color: #FFFFFF;
     transition: color 0.3s ease;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Responsive styles for thinking boxes */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-width: 651px) {
     .thinking-grid {
         gap: 15px;
         max-width: 500px;
-        flex-wrap: wrap;
+        grid-template-columns: repeat(3, 1fr); /* Keep 3 columns on tablets */
     }
     
     .thinking-box {
-        width: 130px;
         height: 130px;
         padding: 12px;
     }
@@ -1331,22 +1335,64 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 650px) {
     .thinking-grid {
-        max-width: 280px;
-        gap: 10px;
+        grid-template-columns: 1fr; /* Single column at small sizes */
+        max-width: 300px;
+        gap: 15px;
     }
     
     .thinking-box {
-        width: 120px;
         height: 120px;
+        padding: 12px;
+        width: 100%;
+        max-width: 280px; /* Better size for a single column */
+    }
+}
+
+@media (max-width: 480px) {
+    .thinking-grid {
+        max-width: 260px;
+        gap: 12px;
+    }
+    
+    .thinking-box {
+        height: 110px;
         padding: 10px;
+    }
+    
+    .thinking-title {
+        font-size: 11px;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
     }
     
     .thinking-image {
         width: 40px;
         height: 40px;
         margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 320px) {
+    .thinking-grid {
+        max-width: 220px;
+        gap: 10px;
+    }
+    
+    .thinking-box {
+        height: 100px;
+        padding: 8px;
+    }
+    
+    .thinking-title {
+        font-size: 10px;
+    }
+    
+    .thinking-image {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 6px;
     }
 }
 
@@ -1585,4 +1631,33 @@
 
 .skill-rect.visible {
     animation: skill-subtle-float 6s infinite ease-in-out, border-pulse 4s infinite ease-in-out;
+}
+
+/* Project box layout has been optimized in the main definition */
+
+/* Thinking grid styles have been applied directly to the original definition */
+
+/* Logo marquee container adjustments for centered layout */
+.logo-marquee-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Skills list adjustments have been applied directly to the original definition */
+
+/* Additional styling for thinking grid container */
+.skills-right .thinking-grid {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensure thinking boxes align well on larger screens */
+@media (min-width: 769px) {
+    .thinking-grid {
+        grid-template-columns: repeat(3, minmax(150px, 180px));
+    }
 }
