@@ -3,7 +3,7 @@
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="lanpage.css">
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
@@ -11,9 +11,9 @@
                 theme: {
                     extend: {
                         colors: {
-                            'primary': '#55286F',
-                            'secondary': '#FEFCFB',
-                            'dark': '#161A1D',
+                            'primary': '#0c0c0c',
+                            'secondary': '#aaaaaa',
+                            'dark': '#262626',
                         }
                     }
                 }
@@ -24,682 +24,627 @@
         <meta name="description" content="Guruduth Rao - AI Product Manager specializing in LLMs, AI products and user-focused solutions">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
-    <body style="background-color: #161A1D; background-image: linear-gradient(to bottom right, #161A1D, #1E2329); background-attachment: fixed;">
+    <body style="background-color: #0c0c0c;">
         <style>
-            /* Subtle animation for sections */
-            .fade-in {
-                opacity: 0;
-                transform: translateY(15px);
-                transition: opacity 0.6s ease, transform 0.6s ease;
-            }
-            .fade-in.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            
-            /* Product Stack Logo Marquee */
-            .logo-marquee-container {
-                position: relative;
-                width: 100%;
-                overflow: hidden;
-                margin-top: 40px; /* Further increased top margin to move it down */
-                margin-bottom: 25px; /* Increased bottom margin for better balance */
-                padding: 70px 0; /* Further increased vertical padding for more height */
-                background-color: rgba(255, 255, 255, 0.08);
-                border-radius: 10px;
-                border: 1px solid rgba(255, 255, 255, 0.3); /* Simple border */
+            /* Reset and base styles */
+            * {
+                margin: 0;
+                padding: 0;
                 box-sizing: border-box;
-                z-index: 1; /* Ensure container is positioned properly */
             }
             
-            /* Removed edge highlight animation for simplicity */
+            body {
+                font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+                background-color: #0c0c0c;
+                color: #ffffff;
+                line-height: 1.6;
+                min-height: 100vh;
+            }
             
-            /* Removed subtle glow animation for simplicity */
+            /* Container for main content */
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 60px 40px;
+            }
             
-            /* Extra styles for desktop to ensure edges are visible */
-            @media (min-width: 769px) {
-                .logo-marquee {
-                    padding-left: 40px; /* Moderate left padding */
-                    padding-right: 120px; /* Increased right padding */
-                }
-                
-                .logo-marquee-container {
-                    position: relative;
-                    border: 1px solid rgba(255, 255, 255, 0.3); /* Simple border */
-                    overflow: hidden; /* Keep logos within container */
-                    margin-top: 45px; /* Further increased top margin on desktop */
-                    margin-bottom: 25px; /* Increased bottom margin on desktop */
-                    padding: 40px 0; /* Reduced vertical padding for desktop */
-                }
-                
-                /* No fade effects on desktop */
-                .logo-marquee-container::before,
-                .logo-marquee-container::after {
-                    display: none;
+            /* Desktop specific adjustments */
+            @media (min-width: 1025px) {
+                .container {
+                    max-width: 1400px;
+                    padding: 60px 40px;
                 }
             }
             
-            .logo-marquee {
+            /* Header section */
+            .header {
+                margin-bottom: 40px;
+            }
+            
+            .header-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: start;
+            }
+            
+            .name-and-social-column {
                 display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .name {
+                font-size: 28px;
+                font-weight: 600;
+                color: #ffffff;
+                text-decoration: none;
+                font-style: italic;
+            }
+            
+            .name:hover {
+                opacity: 0.8;
+            }
+            
+            .social-links {
+                display: flex;
+                gap: 15px;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            
+            .social-link {
+                color: #cccccc;
+                text-decoration: none;
+                font-size: 16px;
+                opacity: 0.9;
+                transition: all 0.2s ease;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            
+            .social-link:hover {
+                opacity: 1;
+                color: #ffffff;
+            }
+            
+            /* Intro section */
+            .intro-column {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .intro {
+                font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+                font-size: 20px;
+                line-height: 1.7;
+                color: #ffffff;
+                opacity: 0.9;
+            }
+            
+            /* Projects grid */
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                margin: 60px 0;
+            }
+            
+            .project-card {
+                background: rgba(38, 38, 38, 0.8);
+                border: 1px solid rgba(38, 38, 38, 1);
+                border-radius: 0;
+                padding: 24px;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 280px;
+            }
+            
+            .project-card:hover {
+                background: rgba(38, 38, 38, 1);
+                border-color: rgba(170, 170, 170, 0.2);
+                transform: translateY(-4px);
+            }
+            
+            /* Individual box glow effects - only on hover */
+            .box-1:hover {
+                box-shadow: 0 0 30px rgba(59, 130, 246, 0.25);
+            }
+            
+            .box-2:hover {
+                box-shadow: 0 0 30px rgba(34, 197, 94, 0.25);
+            }
+            
+            .box-3:hover {
+                box-shadow: 0 0 30px rgba(249, 115, 22, 0.25);
+            }
+            
+            .box-4:hover {
+                box-shadow: 0 0 30px rgba(168, 85, 247, 0.25);
+            }
+            
+            .box-5:hover {
+                box-shadow: 0 0 30px rgba(236, 72, 153, 0.25);
+            }
+            
+            .box-6:hover {
+                box-shadow: 0 0 30px rgba(14, 165, 233, 0.25);
+            }
+            
+            .box-7:hover {
+                box-shadow: 0 0 30px rgba(245, 101, 101, 0.25);
+            }
+            
+            /* Full width box spanning two columns */
+            .full-width {
+                grid-column: 1 / -1;
+                min-height: 200px;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            /* Remove background for Box 7 to match body */
+            .box-7 {
+                background: transparent !important;
+                border: none !important;
+                box-shadow: 0 0 30px rgba(245, 101, 101, 0.6);
+            }
+            
+            .box-7:hover {
+                background: transparent !important;
+                border: none !important;
+                transform: none !important;
+                box-shadow: 0 0 40px rgba(245, 101, 101, 0.8);
+            }
+            
+            /* Scrolling logos animation */
+            .scrolling-logos {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                overflow: hidden;
+                pointer-events: none;
+            }
+            
+            .logo-container {
+                display: flex;
+                align-items: center;
                 white-space: nowrap;
-                will-change: transform;
-                animation: marquee 20s linear infinite; /* Increased speed from 30s to 20s */
-                padding-right: 120px; /* Increased padding on right side to prevent logos from appearing cut off */
-                transform: translateZ(0); /* Performance optimization with hardware acceleration */
+                animation: scrollLogos 20s linear infinite;
             }
             
-            @keyframes marquee {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(-50%);
-                }
-            }
-            
-            .logo-marquee-item {
+            .logo-item {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                padding: 0 35px;
-                transition: all 0.3s ease;
-                min-width: 130px; /* Increase minimum width */
-                margin-bottom: 10px; /* Add some bottom margin */
+                margin-right: 80px;
+                min-width: 120px;
+                justify-content: center;
             }
             
-            .logo-marquee-item:hover {
-                transform: translateY(-5px) scale(1.08);
-                z-index: 5; /* Bring hovered item to front */
-            }
-            
-            .logo-marquee-image {
-                height: 45px;
-                width: auto;
-                max-width: 100px;
+            .logo-item img {
+                width: 48px;
+                height: 48px;
                 object-fit: contain;
-                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)) brightness(0.95) contrast(1.05);
-                transition: all 0.3s ease;
-                opacity: 0.85; /* Slightly more subtle appearance */
+                margin-bottom: 8px;
+                filter: brightness(0.8);
+                transition: filter 0.3s ease;
+                flex-shrink: 0;
             }
             
-            .logo-marquee-item:hover .logo-marquee-image {
-                filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.3)) brightness(1.2);
-                opacity: 1;
-                transform: scale(1.05); /* Slight scale effect on the image itself */
+            /* Specific sizing for certain logos */
+            .logo-item img[src*="Mixpanel"] {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 8px;
             }
             
-            .logo-marquee-name {
+            .logo-item img[src*="Asana"] {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 4px;
+            }
+            
+            /* Fix text alignment for larger logos */
+            .logo-item:has(img[src*="Mixpanel"]) {
+                margin-top: -15px;
+            }
+            
+            .logo-item:has(img[src*="Mixpanel"]) span {
+                margin-top: -30px;
+            }
+            
+            .logo-item:has(img[src*="Asana"]) span {
+                margin-top: -36px;
+            }
+            
+            /* Make ChatGPT logo white */
+            .logo-item img[src*="ChatGPT"] {
+                filter: brightness(0.8) invert(1);
+            }
+            
+            .logo-item span {
                 font-size: 14px;
-                color: #FEFCFB;
-                font-weight: 500;
+                font-weight: 400;
+                color: #aaaaaa;
                 text-align: center;
-                margin-top: 12px;
-                opacity: 0.9;
-                transition: all 0.3s ease;
-                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-                letter-spacing: 0.3px;
+                flex-shrink: 0;
             }
             
-            .logo-marquee-item:hover .logo-marquee-name {
-                opacity: 1;
+            @keyframes scrollLogos {
+                from {
+                    transform: translateX(0);
+                }
+                to {
+                    transform: translateX(-100%);
+                }
+            }
+            
+            /* Animation triggers when box is in viewport */
+            .box-7.animate .logo-container {
+                animation-play-state: running;
+            }
+            
+            .box-7:not(.animate) .logo-container {
+                animation-play-state: paused;
+            }
+            
+            .box-label {
+                font-size: 18px;
+                font-weight: 500;
+                color: #ffffff;
+                opacity: 0.8;
+                text-align: center;
+            }
+            
+            .project-title {
+                font-size: 20px;
                 font-weight: 600;
+                margin-bottom: 8px;
+                color: #ffffff;
             }
             
-            /* Base styling for the before/after elements - used for optional fade effects */
-            .logo-marquee-container::before,
-            .logo-marquee-container::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                height: 100%;
-                width: 0; /* Default to no width */
-                z-index: 2;
-                pointer-events: none;
-                display: none; /* Hide by default */
+            .project-year {
+                font-size: 14px;
+                opacity: 0.6;
+                margin-bottom: 12px;
             }
             
-            .logo-marquee-container::before {
-                left: 0;
-                border-top-left-radius: 10px; /* Match the container border-radius */
-                border-bottom-left-radius: 10px;
+            .project-description {
+                font-size: 15px;
+                line-height: 1.6;
+                opacity: 0.8;
+                color: #aaaaaa;
             }
             
-            .logo-marquee-container::after {
-                right: 0;
-                border-top-right-radius: 10px; /* Match the container border-radius */
-                border-bottom-right-radius: 10px;
+            /* Contact section */
+            .contact {
+                text-align: center;
+                padding-top: 30px;
+                border-top: 1px solid rgba(38, 38, 38, 1);
             }
             
+            .contact h2 {
+                font-size: 18px;
+                font-weight: 600;
+                margin-bottom: 15px;
+                color: #ffffff;
+            }
+            
+            .contact-links {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                margin-bottom: 15px;
+                flex-wrap: wrap;
+            }
+            
+            .contact-link {
+                color: #aaaaaa;
+                text-decoration: none;
+                font-size: 20px;
+                opacity: 0.8;
+                transition: opacity 0.2s ease;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .contact-link:hover {
+                opacity: 1;
+            }
+            
+            .email {
+                font-size: 14px;
+                opacity: 0.7;
+                margin-bottom: 0;
+            }
+            
+            .email a {
+                color: #ffffff;
+                text-decoration: none;
+            }
+            
+            .email a:hover {
+                opacity: 0.8;
+            }
+            
+            /* Responsive design */
             @media (max-width: 768px) {
-                .logo-marquee-container {
-                    padding: 30px 0; /* Reduced vertical padding for tablet */
-                    border-width: 1px; /* Simple border */
-                    margin-top: 35px; /* Increased top margin for tablet */
-                    margin-bottom: 20px; /* Increased bottom margin for tablet */
+                .container {
+                    padding: 40px 15px;
                 }
                 
-                .logo-marquee {
-                    padding-left: 30px; /* Moderate left padding */
-                    padding-right: 100px; /* Increased right padding */
-                    animation-duration: 18s; /* Faster animation for tablet */
+                .header-grid {
+                    grid-template-columns: 1fr;
+                    gap: 30px;
                 }
                 
-                .logo-marquee-item {
-                    padding: 0 25px;
-                    min-width: 110px;
+                .name {
+                    font-size: 24px;
                 }
                 
-                .logo-marquee-image {
-                    height: 40px;
+                .intro {
+                    font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+                    font-size: 18px;
                 }
                 
-                .logo-marquee-name {
-                    font-size: 13px;
-                    margin-top: 10px;
+                .projects-grid {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
                 }
                 
-                /* No fade effects on tablet either */
-                .logo-marquee-container::before,
-                .logo-marquee-container::after {
-                    display: none;
+                .project-card {
+                    padding: 20px;
                 }
                 
-                /* Keep overflow hidden */
-                .logo-marquee-container {
-                    overflow: hidden;
+                .contact-links {
+                    gap: 20px;
                 }
-            }
-            
-            /* Regular text styling for section taglines - no shimmer effect */
-            .tagline-text {
-                position: relative;
-                display: inline-block;
-                color: #FEFCFB;
-                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Maintain readability */
-                font-weight: bold; /* Keep text bold for better visibility */
             }
             
             @media (max-width: 480px) {
-                .logo-marquee-container {
-                    padding: 25px 0; /* Reduced vertical padding for mobile */
-                    border-width: 1px;
+                .container {
+                    padding: 30px 10px;
                 }
                 
-                .logo-marquee {
-                    padding-left: 20px; /* Minimal left padding */
-                    padding-right: 80px; /* Increased right padding */
-                    animation-duration: 10s; /* Much faster animation for mobile */
+                .name {
+                    font-size: 22px;
                 }
                 
-                .logo-marquee-item {
-                    padding: 0 20px;
-                    min-width: 90px;
+                .intro {
+                    font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+                    font-size: 17px;
                 }
                 
-                .logo-marquee-image {
-                    height: 35px;
+                .social-links {
+                    gap: 15px;
                 }
                 
-                .logo-marquee-name {
-                    font-size: 12px;
-                    margin-top: 8px;
+                .project-card {
+                    padding: 18px;
                 }
                 
-                /* Remove fade gradients on mobile */
-                .logo-marquee-container::before,
-                .logo-marquee-container::after {
-                    display: none;
-                }
-                
-                /* Mobile-specific tagline styling */
-                .tagline-text {
-                    font-weight: 600; /* Slightly bolder on mobile for better visibility */
-                }
-                
-                /* Simple border styling */
-                .logo-marquee-container {
-                    border-color: rgba(255, 255, 255, 0.3);
-                    overflow: hidden; /* Keep logos within container */
-                    margin-top: 30px; /* Increased top margin on mobile */
-                    margin-bottom: 15px; /* Increased bottom margin on mobile */
+                .contact-links {
+                    flex-direction: column;
+                    gap: 15px;
                 }
             }
         </style>
-        <div class="top-space">
-            <div>
-                <span class="my-name">Guruduth Rao </span>
-            </div>
-            <div class="nav-buttons">
-                <span><a href="https://github.com/GURUDUTH" target="_blank"><button class="button-style"><i class="fab fa-github"></i> Github</button></a></span>
-                <span><a href="https://x.com/GuruduthH" target="_blank"><button class="button-style"><i class="fab fa-x-twitter"></i> Twitter</button></a></span>
-                <span><a href="https://www.linkedin.com/in/guruduth-rao-h-36845b171/" target="_blank"><button class="button-style"><i class="fab fa-linkedin-in"></i> LinkedIn</button></a></span>
-            </div>
-        </div>
-        
-        <div id="intro-box" class="fade-in">
-            <p>Hey, I'm Guruduth an aspiring AI Product Manager with a passion for building impactful, user-focused products.</p>
-            <p>I'm focused on exploring how AI products can solve real world problems and create value for users and businesses. I bring strong communication, strategic thinking, and a curiosity driven approach to working with teams and translating ideas into actionable product outcomes.</p>
-            <p>My experience includes contributing to early-stage AI product ideas, collaborating with cross functional teams, and supporting projects involving ML workflows and conversational systems.</p>
-        </div>
-        
-        <div class="skills-section fade-in">
-            <div class="skills-content">
-                <div class="skills-main-content">
-                    <div class="skills-left">
-                        <h2 class="skills-heading">Product Lab</h2>
-                        <p class="skills-tagline"><span class="tagline-text">Strategic works exploring<br>problems, users, and solutions</span></p>
-                    </div>
-                    <div class="skills-right">
-                        <div class="project-box">
-                            <img src="./logos/GitHub-Agent-Mode.webp" alt="GitHub Agent Mode" class="project-image">
-                            <p class="project-title">Github Copilot - Product Teardown</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="skills-section fade-in">
-            <div class="skills-content">
-                <div class="skills-main-content">
-                    <div class="skills-left">
-                        <h2 class="skills-heading">Thinking in Product</h2>
-                        <p class="skills-tagline"><span class="tagline-text">Frameworks, insights, and<br>thoughts on product management</span></p>
-                    </div>
-                    <div class="skills-right">
-                        <div class="thinking-grid">
-                            <a href="evals-for-aipm.html" class="thinking-box">
-                                <img src="./logos/evals-icon.svg" alt="Evaluation Framework" class="thinking-image">
-                                <p class="thinking-title">EVALS simplified for AIPM/PM</p>
+        <div class="container">
+            <!-- Header Section -->
+            <header class="header">
+                <div class="header-grid">
+                    <!-- Left Column: Name and Social Links -->
+                    <div class="name-and-social-column">
+                        <a href="#" class="name">Guruduth Rao</a>
+                        <div class="social-links">
+                            <a href="https://github.com/GURUDUTH" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
                             </a>
-                            <a href="https://www.notion.so/MTP-Product-management-1f64c8a57c1280509e4cf741cf7c72f6?source=copy_link" target="_blank" class="thinking-box">
-                                <img src="./logos/notionlogo.webp" alt="Notion Logo" class="thinking-image">
-                                <p class="thinking-title">PM Notes</p>
+                            <a href="https://x.com/GuruduthH" target="_blank" class="social-link">
+                                <i class="fab fa-x-twitter"></i>
                             </a>
-                            <a href="model-vs-system-evals.html" class="thinking-box">
-                                <img src="./logos/model-vs-system-evals.svg" alt="Model vs System Evals" class="thinking-image">
-                                <p class="thinking-title">Model Evals vs System Evals for AIPM/PM</p>
+                            <a href="https://www.linkedin.com/in/guruduth-rao-h-36845b171/" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="mailto:graoinbox16@gmail.com" class="social-link">
+                                <i class="fas fa-envelope"></i>
                             </a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="skills-section my-skills-section fade-in">
-            <div class="skills-content">
-                <div class="skills-main-content">
-                    <div class="skills-left">
-                        <h2 class="skills-heading">My Skills</h2>
-                        <p class="skills-tagline"><span class="tagline-text">Transforming Product Ideas<br>Into Measurable Business Value.</span></p>
+                    
+                    <!-- Right Column: Intro Text -->
+                    <div class="intro-column">
+                        <div class="intro">
+                            Engineer/Product Manager based in Bangalore, working across business, data, and AI, i'm also Pursuing an MSc in Data Science.
+                        </div>
+                        <div class="intro">
+                            Currently Focused on Generative AI applications, exploring product ideas, user personas and real world use cases.
+                        </div>
                     </div>
-                    <div class="skills-right">
-                        <div class="skills-list">
-                            <!-- Skill 1: Market/User Research -->
-                            <div class="skill-rect">
-                                <div class="skill-icon">
-                                    <i class="fas fa-magnifying-glass"></i>
-                                </div>
-                                <div class="skill-text">
-                                    <h3>Market/ User research</h3>
-                                </div>
+                </div>
+            </header>
+            
+            <!-- Projects Section -->
+            <section class="projects-grid">
+                <div class="project-card box-1">
+                    <div class="box-label">Box 1</div>
+                </div>
+                
+                <div class="project-card box-2">
+                    <div class="box-label">Box 2</div>
+                </div>
+                
+                <div class="project-card box-3">
+                    <div class="box-label">Box 3</div>
+                </div>
+                
+                <div class="project-card box-4">
+                    <div class="box-label">Box 4</div>
+                </div>
+                
+                <div class="project-card box-5">
+                    <div class="box-label">Box 5</div>
+                </div>
+                
+                <div class="project-card box-6">
+                    <div class="box-label">Box 6</div>
+                </div>
+                
+                <div class="project-card box-7 full-width">
+                    <div class="scrolling-logos">
+                        <div class="logo-container">
+                            <div class="logo-item">
+                                <img src="logos/Mixpanel_Purple_-_2023.png" alt="Mixpanel">
+                                <span>Mixpanel</span>
                             </div>
-                            
-                            <!-- Skill 2: AI Product Management -->
-                            <div class="skill-rect">
-                                <div class="skill-icon">
-                                    <i class="fas fa-brain"></i>
-                                </div>
-                                <div class="skill-text">
-                                    <h3>AI product management</h3>
-                                </div>
+                            <div class="logo-item">
+                                <img src="logos/Notion-logo.svg.png" alt="Notion">
+                                <span>Notion</span>
                             </div>
-                            
-                            <!-- Skill 3: AI application Evals -->
-                            <div class="skill-rect">
-                                <div class="skill-icon">
-                                    <i class="fas fa-chart-bar"></i>
-                                </div>
-                                <div class="skill-text">
-                                    <h3>AI application Evals and observability</h3>
-                                </div>
+                            <div class="logo-item">
+                                <img src="logos/Ahalogo.png" alt="Aha!">
+                                <span>Aha!</span>
                             </div>
-                            
-                            <!-- Skill 4: Prioritization and Roadmapping -->
-                            <div class="skill-rect">
-                                <div class="skill-icon">
-                                    <i class="fas fa-tasks"></i>
-                                </div>
-                                <div class="skill-text">
-                                    <h3>Prioritization and Roadmapping</h3>
-                                </div>
+                            <div class="logo-item">
+                                <img src="logos/copilot.png" alt="GitHub Copilot">
+                                <span>Copilot</span>
                             </div>
-                            
-                            <!-- Skill 5: Stakeholder management -->
-                            <div class="skill-rect">
-                                <div class="skill-icon">
-                                    <i class="fas fa-people-group"></i>
-                                </div>
-                                <div class="skill-text">
-                                    <h3>Stakeholder management</h3>
-                                </div>
+                            <div class="logo-item">
+                                <img src="logos/ChatGPT-Logo.svg.webp" alt="ChatGPT">
+                                <span>ChatGPT</span>
+                            </div>
+                            <div class="logo-item">
+                                <img src="logos/Figma-logo.svg.png" alt="Figma">
+                                <span>Figma</span>
+                            </div>
+                            <div class="logo-item">
+                                <img src="logos/asana (1).png" alt="Asana">
+                                <span>Asana</span>
+                            </div>
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="logo-container">
+                            <div class="logo-item">
+                                <img src="logos/Mixpanel_Purple_-_2023.png" alt="Mixpanel">
+                                <span>Mixpanel</span>
+                            </div>
+                            <div class="logo-item">
+                                <img src="logos/Notion-logo.svg.png" alt="Notion">
+                                <span>Notion</span>
+                            </div>
+                            <div class="logo-item">
+                                <img src="logos/Ahalogo.png" alt="Aha!">
+                                <span>Aha!</span>
+                            </div>
+                            <div class="logo-item">
+                                <img src="logos/copilot.png" alt="GitHub Copilot">
+                                <span>Copilot</span>
+                            </div>
+                            <div class="logo-item">
+                                <img src="logos/ChatGPT-Logo.svg.webp" alt="ChatGPT">
+                                <span>ChatGPT</span>
+                            </div>
+                            <div class="logo-item">
+                                <img src="logos/Figma-logo.svg.png" alt="Figma">
+                                <span>Figma</span>
+                            </div>
+                            <div class="logo-item">
+                                <img src="logos/asana (1).png" alt="Asana">
+                                <span>Asana</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="skills-section fade-in" style="margin-top: 60px; margin-bottom: 60px; padding-top: 30px; padding-bottom: 30px;">
-            <div class="skills-content">
-                <div class="skills-main-content">
-                    <div class="skills-left">
-                        <h2 class="skills-heading">Product Stack</h2>
-                        <p class="skills-tagline"><span class="tagline-text">Core tools powering<br>my product work.</span></p>
-                    </div>
-                    <div class="skills-right">
-                        <div class="logo-marquee-container">
-                            <div class="logo-marquee">
-                                <!-- First set of logos -->
-                                <div class="logo-marquee-item">
-                                    <img src="logos/Asana_logo.svg.png" alt="Asana" class="logo-marquee-image">
-                                    <span class="logo-marquee-name">Asana</span>
-                                </div>
-                                <div class="logo-marquee-item">
-                                    <img src="logos/Ahalogo.png" alt="Aha!" class="logo-marquee-image">
-                                    <span class="logo-marquee-name">Aha!</span>
-                                </div>
-                                <div class="logo-marquee-item">
-                                    <img src="logos/ChatGPT-Logo.svg.webp" alt="ChatGPT" class="logo-marquee-image">
-                                    <span class="logo-marquee-name">ChatGPT</span>
-                                </div>
-                                <div class="logo-marquee-item">
-                                    <img src="logos/Figma-logo.svg.png" alt="Figma" class="logo-marquee-image">
-                                    <span class="logo-marquee-name">Figma</span>
-                                </div>
-                                <div class="logo-marquee-item">
-                                    <img src="logos/Notion-logo.svg.png" alt="Notion" class="logo-marquee-image">
-                                    <span class="logo-marquee-name">Notion</span>
-                                </div>
-                                <div class="logo-marquee-item">
-                                    <img src="logos/copilot.png" alt="GitHub Copilot" class="logo-marquee-image">
-                                    <span class="logo-marquee-name">GitHub Copilot</span>
-                                </div>
-                                
-                                <!-- Duplicate set for continuous motion -->
-                                <div class="logo-marquee-item">
-                                    <img src="logos/Asana_logo.svg.png" alt="Asana" class="logo-marquee-image">
-                                    <span class="logo-marquee-name">Asana</span>
-                                </div>
-                                <div class="logo-marquee-item">
-                                    <img src="logos/Ahalogo.png" alt="Aha!" class="logo-marquee-image">
-                                    <span class="logo-marquee-name">Aha!</span>
-                                </div>
-                                <div class="logo-marquee-item">
-                                    <img src="logos/ChatGPT-Logo.svg.webp" alt="ChatGPT" class="logo-marquee-image">
-                                    <span class="logo-marquee-name">ChatGPT</span>
-                                </div>
-                                <div class="logo-marquee-item">
-                                    <img src="logos/Figma-logo.svg.png" alt="Figma" class="logo-marquee-image">
-                                    <span class="logo-marquee-name">Figma</span>
-                                </div>
-                                <div class="logo-marquee-item">
-                                    <img src="logos/Notion-logo.svg.png" alt="Notion" class="logo-marquee-image">
-                                    <span class="logo-marquee-name">Notion</span>
-                                </div>
-                                <div class="logo-marquee-item">
-                                    <img src="logos/copilot.png" alt="GitHub Copilot" class="logo-marquee-image">
-                                    <span class="logo-marquee-name">GitHub Copilot</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            </section>
+            
+            <!-- Contact Section -->
+            <footer class="contact">
+                <h2>Connect With Me</h2>
+                <div class="contact-links">
+                    <a href="https://github.com/GURUDUTH" target="_blank" class="contact-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/guruduth-rao-h-36845b171/" target="_blank" class="contact-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://x.com/GuruduthH" target="_blank" class="contact-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
                 </div>
-            </div>
+                <div class="email">
+                    <a href="mailto:graoinbox16@gmail.com">graoinbox16@gmail.com</a>
+                </div>
+            </footer>
         </div>
         
         <script>
-            // Animation on scroll
+            // Simple scroll-based animations and interactions
             document.addEventListener('DOMContentLoaded', function() {
-                const fadeElements = document.querySelectorAll('.fade-in');
-                
-                // Initialize logo marquee
-                const logoMarquee = document.querySelector('.logo-marquee');
-                const logoMarqueeContainer = document.querySelector('.logo-marquee-container');
-                
-                if (logoMarquee && logoMarqueeContainer) {
-                    // Ensure animation is running from the start
-                    logoMarquee.style.animationPlayState = 'running';
-                    
-                    // Pause animation on hover
-                    logoMarqueeContainer.addEventListener('mouseenter', () => {
-                        logoMarquee.style.animationPlayState = 'paused';
-                    });
-                    
-                    logoMarqueeContainer.addEventListener('mouseleave', () => {
-                        logoMarquee.style.animationPlayState = 'running';
-                    });
-                    
-                    // Immediately display logos and handle any loading issues
-                    document.querySelectorAll('.logo-marquee-image').forEach((img, index) => {
-                        // Force image to display
-                        img.style.display = 'block';
-                        
-                        // Handle errors and ensure visibility
-                        img.onerror = function() {
-                            console.log('Error loading image:', img.src);
-                            // Try alternate format if available
-                            if (img.src.includes('Asana_logo.svg.png')) {
-                                img.src = './logos/Asana_logo.svg.png';
-                            } else if (img.src.includes('Notion-logo.svg.png')) {
-                                img.src = './logos/notionlogo.webp';
-                            } else if (img.src.includes('copilot.png')) {
-                                img.src = './logos/copilot1.avif';
-                            } else {
-                                // Generic fallback
-                                img.src = './logos/notionlogo.webp';
-                            }
-                        };
-                        
-                        // Ensure image appears even if already loaded
-                        if (img.complete) {
-                            img.style.opacity = '1';
-                        } else {
-                            img.onload = function() {
-                                img.style.opacity = '1';
-                            };
+                // Add smooth scrolling for any anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
                         }
                     });
-                    
-                    // Ensure the container is visible
-                    logoMarqueeContainer.style.display = 'block';
-                    logoMarqueeContainer.style.visibility = 'visible';
-                    
-                    // Function to ensure proper paddings based on screen size
-                    function adjustMarqueeWidth() {
-                        // Set appropriate padding across all screen sizes
-                        if (window.innerWidth <= 480) {
-                            // Mobile view
-                            logoMarquee.style.paddingLeft = '20px';
-                            logoMarquee.style.paddingRight = '80px'; // Increased right padding
-                            logoMarqueeContainer.style.padding = '25px 0'; // Reduced vertical padding for mobile
-                            logoMarqueeContainer.style.marginTop = '30px'; // Top margin for mobile
-                            logoMarqueeContainer.style.marginBottom = '15px'; // Bottom margin for mobile
-                            logoMarquee.style.animationDuration = '10s'; // Much faster animation for mobile
-                        } else if (window.innerWidth <= 768) {
-                            // Tablet view
-                            logoMarquee.style.paddingLeft = '30px';
-                            logoMarquee.style.paddingRight = '100px'; // Increased right padding
-                            logoMarqueeContainer.style.padding = '30px 0'; // Reduced vertical padding for tablet
-                            logoMarqueeContainer.style.marginTop = '35px'; // Top margin for tablet
-                            logoMarqueeContainer.style.marginBottom = '20px'; // Bottom margin for tablet
-                            logoMarquee.style.animationDuration = '18s'; // Faster animation for tablet
-                        } else {
-                            // Desktop view
-                            logoMarquee.style.paddingLeft = '40px';
-                            logoMarquee.style.paddingRight = '120px'; // Increased right padding
-                            logoMarqueeContainer.style.padding = '40px 0'; // Reduced vertical padding for desktop
-                            logoMarqueeContainer.style.marginTop = '45px'; // Top margin for desktop
-                            logoMarqueeContainer.style.marginBottom = '25px'; // Bottom margin for desktop
-                            logoMarquee.style.animationDuration = '20s'; // Faster animation for desktop
-                        }
-                        
-                        // Make sure overflow is hidden on all devices
-                        logoMarqueeContainer.style.overflow = 'hidden';
-                        
-                        // Remove any existing enhancers/fade effects
-                        const existingEnhancers = logoMarqueeContainer.querySelectorAll('.edge-enhancer');
-                        existingEnhancers.forEach(el => el.remove());
-                    }
-                    
-                    // Run after images have loaded
-                    window.addEventListener('load', adjustMarqueeWidth);
-                    
-                    // Also run after a short delay to ensure all elements are rendered
-                    setTimeout(adjustMarqueeWidth, 1000);
-                    
-                    // Simple resize handler 
-                    window.addEventListener('resize', () => {
-                        // Debounce the resize event
-                        if (window.resizeTimer) {
-                            clearTimeout(window.resizeTimer);
-                        }
-                        window.resizeTimer = setTimeout(() => {
-                            adjustMarqueeWidth();
-                        }, 250);
-                    });
-                }
+                });
                 
-                // Find the skills section specifically for skill rolling animation
-                const skillsSection = document.querySelector('.my-skills-section');
-                const skillsList = skillsSection ? skillsSection.querySelector('.skills-list') : null;
-                const skillItems = skillsList ? skillsList.querySelectorAll('.skill-rect:nth-child(n+3)') : [];
-                
-                // Debug function to check all logo image paths
-                function checkLogoImages() {
-                    const logoImages = document.querySelectorAll('.logo-marquee-image');
-                    logoImages.forEach((img, index) => {
-                        console.log(`Logo ${index}: ${img.src}, Complete: ${img.complete}, Natural width: ${img.naturalWidth}`);
-                    });
-                }
-                
-                // Run the check after a short delay
-                setTimeout(checkLogoImages, 500);
+                // Add intersection observer for subtle animations
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
                 
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            
-                            // Handle skills roll-in animation
-                            if (entry.target === skillsSection && skillItems.length > 0) {
-                                skillItems.forEach((item, index) => {
-                                    setTimeout(() => {
-                                        item.classList.add('visible');
-                                        item.style.animation = `skill-roll-in 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards`;
-                                    }, 500 + (index * 300)); // Longer staggered delay for more dramatic effect
-                                });
-                            }
-                            
-                            // Show skill indicator when the skills section comes into view
-                            if (entry.target === skillsSection) {
-                                // Only show the indicator if there are hidden skills (3+)
-                                if (skillItems.length > 0) {
-                                    // Add the indicator class
-                                    skillsList.classList.add('show-more-indicator');
-                                    
-                                    // Remove the indicator after all skills have been shown
-                                    setTimeout(() => {
-                                        skillsList.classList.remove('show-more-indicator');
-                                    }, 400 + (skillItems.length * 250) + 500); // Wait until all skills are shown plus a bit more
-                                }
-                            }
-                            
-                            // Control logo marquee animation when in view
-                            if (logoMarquee && entry.target.contains(logoMarquee)) {
-                                logoMarquee.style.animationPlayState = 'running';
-                                
-                                // Simple padding adjustment
-                                adjustMarqueeWidth();
-                            }
-                            
-                            // Once elements are visible, keep them visible (especially for the Connect section)
-                            if (entry.target.classList.contains('connect-section')) {
-                                // Stop observing the connect section once it's visible to ensure it stays visible
-                                observer.unobserve(entry.target);
-                            }
-                        } else if (logoMarquee && entry.target.contains(logoMarquee)) {
-                            // Keep the animation running even when out of view for smoother experience when scrolling back
-                            // logoMarquee.style.animationPlayState = 'running';
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
                         }
                     });
-                }, { threshold: 0.3, rootMargin: "0px 0px 50px 0px" });
+                }, observerOptions);
                 
-                fadeElements.forEach(element => {
-                    observer.observe(element);
+                // Observe project cards for animation
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    observer.observe(card);
                 });
                 
-                // Create and add back-to-top button
-                const backToTopBtn = document.createElement('button');
-                backToTopBtn.className = 'back-to-top';
-                backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-                document.body.appendChild(backToTopBtn);
-                
-                // Show/hide back-to-top button based on scroll position
-                window.addEventListener('scroll', function() {
-                    if (window.pageYOffset > 300) {
-                        backToTopBtn.classList.add('show');
-                    } else {
-                        backToTopBtn.classList.remove('show');
-                    }
-                });
-                
-                // Smooth scroll to top when the button is clicked
-                backToTopBtn.addEventListener('click', function() {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                // Ensure animations complete when scrolling past quickly
-                window.addEventListener('scroll', function() {
-                    // After scrolling past the skills section, ensure all skills are visible
-                    if (skillsSection && 
-                        skillsSection.getBoundingClientRect().top < -200 && 
-                        skillItems.length > 0) {
-                        
-                        skillItems.forEach((item, index) => {
-                            if (!item.classList.contains('visible')) {
-                                item.classList.add('visible');
-                            }
-                        });
-                        
-                        // Remove the indicator if it's still showing
-                        if (skillsList.classList.contains('show-more-indicator')) {
-                            skillsList.classList.remove('show-more-indicator');
+                // Scrolling text animation for Box 7
+                const box7Observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate');
+                        } else {
+                            entry.target.classList.remove('animate');
                         }
-                    }
-                });
+                    });
+                }, { threshold: 0.3 });
+                
+                const box7 = document.querySelector('.box-7');
+                if (box7) {
+                    box7Observer.observe(box7);
+                }
             });
         </script>
         
-        <div class="connect-section fade-in">
-            <h2>Connect With Me</h2>
-            <div class="social-icons">
-                <a href="https://github.com/GURUDUTH" target="_blank" class="social-icon" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/guruduth-rao-h-36845b171/" target="_blank" class="social-icon" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://x.com/GuruduthH" target="_blank" class="social-icon" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </div>
-            <div class="email-text">
-                <a href="mailto:graoinbox16@gmail.com">graoinbox16@gmail.com</a>
-            </div>
-        </div>
     </body>    
 </html>
