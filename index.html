@@ -340,6 +340,21 @@
                 z-index: 2;
             }
             
+            /* IN PROGRESS watermark styling */
+            .watermark {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 48px;
+                font-weight: 700;
+                color: rgba(255, 255, 255, 0.08);
+                white-space: nowrap;
+                pointer-events: none;
+                z-index: 1;
+                user-select: none;
+            }
+            
             /* Silver light curtain animation for Box 1 and Box 2 */
             .box-1, .box-2 {
                 position: relative;
@@ -609,6 +624,7 @@
                 
                 <div class="project-item">
                     <div class="project-card box-3">
+                        <div class="watermark">IN PROGRESS</div>
                         <div class="box-label">Box 3</div>
                     </div>
                     <div class="project-text">
@@ -619,6 +635,7 @@
                 
                 <div class="project-item">
                     <div class="project-card box-4">
+                        <div class="watermark">IN PROGRESS</div>
                         <div class="box-label">Box 4</div>
                     </div>
                     <div class="project-text">
@@ -629,6 +646,7 @@
                 
                 <div class="project-item">
                     <div class="project-card box-5">
+                        <div class="watermark">IN PROGRESS</div>
                         <div class="box-label">Box 5</div>
                     </div>
                     <div class="project-text">
@@ -639,6 +657,7 @@
                 
                 <div class="project-item">
                     <div class="project-card box-6">
+                        <div class="watermark">IN PROGRESS</div>
                         <div class="box-label">Box 6</div>
                     </div>
                     <div class="project-text">
