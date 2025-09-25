@@ -64,6 +64,26 @@
                 padding: 60px 40px;
             }
             
+            /* Ensure consistent left and right padding */
+            .container {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .container {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+            }
+            
             /* Desktop specific adjustments */
             @media (min-width: 1025px) {
                 .container {
@@ -579,13 +599,16 @@
             
             @media (max-width: 480px) {
                 .menu-bar {
-                    flex-wrap: wrap;
-                    gap: 6px;
+                    flex-wrap: nowrap; /* Prevent wrapping */
+                    justify-content: center; /* Center the items */
+                    gap: 4px; /* Reduce gap for smaller screens */
+                    overflow-x: auto; /* Allow horizontal scrolling if needed */
                 }
-                
+
                 .menu-item {
                     padding: 8px 16px;
                     font-size: 12px;
+                    white-space: nowrap; /* Prevent text wrapping */
                 }
             }
             
